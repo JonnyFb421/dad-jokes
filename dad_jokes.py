@@ -12,9 +12,9 @@ def get_joke_from_api(term=None, page=1):
     :return: None
     """
     endpoint = 'https://icanhazdadjoke.com/search'
-    params = None
+    params = {'page': page}
     if term:
-        params = {'term': term, 'page': page}
+        params['term'] = term
     headers = {'Accept': 'application/json'}
     response = requests.get(endpoint, params=params, headers=headers)
     response.raise_for_status()
